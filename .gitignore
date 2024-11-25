@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.config
+/.dll
+/.pdb
+/.vs/Auth_Services
+/./Debug/net6.0
+/Auth_Services.Infrastructure/obj/Debug/net6.0
