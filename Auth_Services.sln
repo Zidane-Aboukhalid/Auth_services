@@ -5,11 +5,13 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth_Services.API", "Auth_Services.API\Auth_Services.API.csproj", "{7DF266D2-3E17-4346-8233-D395B0BFDBD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth_Services.Domain", "Auth_Services.Domain\Auth_Services.Domain.csproj", "{418EA351-EE12-45A4-B795-8A27DC9F99D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth_Services.Domain", "Auth_Services.Domain\Auth_Services.Domain.csproj", "{418EA351-EE12-45A4-B795-8A27DC9F99D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth_Services.Infrastructure", "Auth_Services.Infrastructure\Auth_Services.Infrastructure.csproj", "{54496ACF-7F6D-46C0-A462-2CDAAA5CDDFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth_Services.Infrastructure", "Auth_Services.Infrastructure\Auth_Services.Infrastructure.csproj", "{54496ACF-7F6D-46C0-A462-2CDAAA5CDDFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth_Services.Application", "Auth_Services.Application\Auth_Services.Application.csproj", "{C0B1B263-9998-4F30-B866-BEE0102622AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth_Services.Application", "Auth_Services.Application\Auth_Services.Application.csproj", "{C0B1B263-9998-4F30-B866-BEE0102622AD}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{27790048-5AA7-4668-A8FC-A960A470C4A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{C0B1B263-9998-4F30-B866-BEE0102622AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0B1B263-9998-4F30-B866-BEE0102622AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0B1B263-9998-4F30-B866-BEE0102622AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27790048-5AA7-4668-A8FC-A960A470C4A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27790048-5AA7-4668-A8FC-A960A470C4A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27790048-5AA7-4668-A8FC-A960A470C4A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27790048-5AA7-4668-A8FC-A960A470C4A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
