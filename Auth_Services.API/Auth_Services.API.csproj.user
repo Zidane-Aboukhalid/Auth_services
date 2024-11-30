@@ -2,5 +2,9 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <NameOfLastUsedPublishProfile>D:\DotNet Core Apps\Project E-come Acheticter MicroServices\Auth_Services\Auth_Services.API\Properties\PublishProfiles\registry.hub.docker.com_root_Admin.pubxml</NameOfLastUsedPublishProfile>
+    <ActiveDebugProfile>Auth_Services.API</ActiveDebugProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>
