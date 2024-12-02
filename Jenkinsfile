@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('checkout code  / Git ') {
+    stage('checkout code') {
       steps {
-        git(url: 'https://github.com/Zidane-Aboukhalid/Auth_services', branch: 'main', changelog: true)
+        git(url: 'https://github.com/Zidane-Aboukhalid/Auth_services', branch: 'dev')
       }
     }
 
