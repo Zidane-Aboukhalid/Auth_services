@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Z4oyl3H3h8Y=",
+  "dgSpecHash": "ftInUjAsG0w=",
   "success": true,
-  "projectFilePath": "D:\\DotNet Core Apps\\Project E-come Acheticter MicroServices\\Auth_Services\\Auth_Services.Domain\\Auth_Services.Domain.csproj",
+  "projectFilePath": "D:\\DotNet Core Apps\\services Auth\\Auth_Services\\Auth_Services.Domain\\Auth_Services.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\abouk\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.31\\microsoft.aspnetcore.authentication.jwtbearer.6.0.31.nupkg.sha512",
     "C:\\Users\\abouk\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

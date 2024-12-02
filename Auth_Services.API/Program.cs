@@ -4,30 +4,28 @@ using System.Text;
 using Auth_Services.Infrastructure;
 using Auth_Services.Application;
 using Microsoft.AspNetCore.Identity;
-
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
-// Add services to the container.
 
+// Add services to the container.
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
 //services Infra 
-
 builder.Services.AddServicesInfrastructure(builder.Configuration);
 
 //services Application 
 builder.Services.AddServicesApplication();
 
-
 builder.Services.Configure<IdentityOptions>(Options =>
 {
 	Options.User.AllowedUserNameCharacters = string.Empty;
-}
-);
+});
+
 // Add services to the container.
 builder.Services.AddAuthentication(options =>
 {
@@ -51,15 +49,6 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 
-//builder.Services.AddAuthentication(options =>
-//{
-//	options.DefaultAuthenticateScheme = GoogleDefaults.AuthenticationScheme;
-//	options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
-//})
-//	.AddGoogle(googleOption => {
-//		googleOption.ClientId = builder.Configuration["AuthGoogle:client_id"];
-//		googleOption.ClientSecret = builder.Configuration["AuthGoogle:client_secret"];
-//	});
 builder.Services.AddCors(options =>
 {
 	options.AddPolicy("Open", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
@@ -69,15 +58,8 @@ builder.Services.AddCors(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
-//	app.UseSwagger();
-//	app.UseSwaggerUI();
-//}
 app.UseSwagger();
 app.UseSwaggerUI();
-app.UseHttpsRedirection();
-
 
 app.UseAuthentication();
 app.UseAuthorization();

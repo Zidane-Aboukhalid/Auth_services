@@ -10,3 +10,16 @@ D:\DotNet Core Apps\Project E-come Acheticter MicroServices\Auth_Services\Auth_S
 D:\DotNet Core Apps\Project E-come Acheticter MicroServices\Auth_Services\Auth_Services.Domain\obj\Debug\net6.0\refint\Auth_Services.Domain.dll
 D:\DotNet Core Apps\Project E-come Acheticter MicroServices\Auth_Services\Auth_Services.Domain\obj\Debug\net6.0\Auth_Services.Domain.pdb
 D:\DotNet Core Apps\Project E-come Acheticter MicroServices\Auth_Services\Auth_Services.Domain\obj\Debug\net6.0\ref\Auth_Services.Domain.dll
+D:\DotNet Core Apps\services Auth\Auth_Services\Auth_Services.Domain\bin\Debug\net6.0\Auth_Services.Domain.deps.json
+D:\DotNet Core Apps\services Auth\Auth_Services\Auth_Services.Domain\bin\Debug\net6.0\Auth_Services.Domain.dll
+D:\DotNet Core Apps\services Auth\Auth_Services\Auth_Services.Domain\bin\Debug\net6.0\Auth_Services.Domain.pdb
+D:\DotNet Core Apps\services Auth\Auth_Services\Auth_Services.Domain\obj\Debug\net6.0\Auth_Services.Domain.csproj.AssemblyReference.cache
+D:\DotNet Core Apps\services Auth\Auth_Services\Auth_Services.Domain\obj\Debug\net6.0\Auth_Services.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\DotNet Core Apps\services Auth\Auth_Services\Auth_Services.Domain\obj\Debug\net6.0\Auth_Services.Domain.AssemblyInfoInputs.cache
+D:\DotNet Core Apps\services Auth\Auth_Services\Auth_Services.Domain\obj\Debug\net6.0\Auth_Services.Domain.AssemblyInfo.cs
+D:\DotNet Core Apps\services Auth\Auth_Services\Auth_Services.Domain\obj\Debug\net6.0\Auth_Services.Domain.csproj.CoreCompileInputs.cache
+D:\DotNet Core Apps\services Auth\Auth_Services\Auth_Services.Domain\obj\Debug\net6.0\Auth_Services.Domain.sourcelink.json
+D:\DotNet Core Apps\services Auth\Auth_Services\Auth_Services.Domain\obj\Debug\net6.0\Auth_Services.Domain.dll
+D:\DotNet Core Apps\services Auth\Auth_Services\Auth_Services.Domain\obj\Debug\net6.0\refint\Auth_Services.Domain.dll
+D:\DotNet Core Apps\services Auth\Auth_Services\Auth_Services.Domain\obj\Debug\net6.0\Auth_Services.Domain.pdb
+D:\DotNet Core Apps\services Auth\Auth_Services\Auth_Services.Domain\obj\Debug\net6.0\ref\Auth_Services.Domain.dll

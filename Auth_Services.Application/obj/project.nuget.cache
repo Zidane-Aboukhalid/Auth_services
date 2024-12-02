@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jhk0sJP32D8=",
+  "dgSpecHash": "vuosCQy2zOw=",
   "success": true,
-  "projectFilePath": "D:\\DotNet Core Apps\\Project E-come Acheticter MicroServices\\Auth_Services\\Auth_Services.Application\\Auth_Services.Application.csproj",
+  "projectFilePath": "D:\\DotNet Core Apps\\services Auth\\Auth_Services\\Auth_Services.Application\\Auth_Services.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\abouk\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\abouk\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

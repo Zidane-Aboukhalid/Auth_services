@@ -3090,11 +3090,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DotNet Core Apps\\Project E-come Acheticter MicroServices\\Auth_Services\\Auth_Services.Infrastructure\\Auth_Services.Infrastructure.csproj",
+      "projectUniqueName": "D:\\DotNet Core Apps\\services Auth\\Auth_Services\\Auth_Services.Infrastructure\\Auth_Services.Infrastructure.csproj",
       "projectName": "Auth_Services.Infrastructure",
-      "projectPath": "D:\\DotNet Core Apps\\Project E-come Acheticter MicroServices\\Auth_Services\\Auth_Services.Infrastructure\\Auth_Services.Infrastructure.csproj",
+      "projectPath": "D:\\DotNet Core Apps\\services Auth\\Auth_Services\\Auth_Services.Infrastructure\\Auth_Services.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\abouk\\.nuget\\packages\\",
-      "outputPath": "D:\\DotNet Core Apps\\Project E-come Acheticter MicroServices\\Auth_Services\\Auth_Services.Infrastructure\\obj\\",
+      "outputPath": "D:\\DotNet Core Apps\\services Auth\\Auth_Services\\Auth_Services.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\abouk\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3112,8 +3112,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\DotNet Core Apps\\Project E-come Acheticter MicroServices\\Auth_Services\\Auth_Services.Application\\Auth_Services.Application.csproj": {
-              "projectPath": "D:\\DotNet Core Apps\\Project E-come Acheticter MicroServices\\Auth_Services\\Auth_Services.Application\\Auth_Services.Application.csproj"
+            "D:\\DotNet Core Apps\\services Auth\\Auth_Services\\Auth_Services.Application\\Auth_Services.Application.csproj": {
+              "projectPath": "D:\\DotNet Core Apps\\services Auth\\Auth_Services\\Auth_Services.Application\\Auth_Services.Application.csproj"
             }
           }
         }

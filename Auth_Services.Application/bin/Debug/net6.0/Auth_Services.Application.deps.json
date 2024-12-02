@@ -272,7 +272,10 @@
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.31"
         },
         "runtime": {
-          "Auth_Services.Domain.dll": {}
+          "Auth_Services.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Auth_Services.Domain
-build_property.ProjectDir = D:\DotNet Core Apps\Project E-come Acheticter MicroServices\Auth_Services\Auth_Services.Domain\
+build_property.ProjectDir = D:\DotNet Core Apps\services Auth\Auth_Services\Auth_Services.Domain\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
