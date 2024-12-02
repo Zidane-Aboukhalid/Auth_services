@@ -1,17 +1,21 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.Extensions.Options;
 using System.Text;
 using Auth_Services.Infrastructure;
 using Auth_Services.Application;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configurer Kestrel pour écouter sur le port 80
+// Configurer Kestrel pour écouter sur le port 80 (HTTP)
 builder.WebHost.ConfigureKestrel(options =>
 {
     // Écouter sur toutes les interfaces réseau au port 80 (HTTP)
-    options.ListenAnyIP(80);  // Écouter sur le port 80 (sans SSL)
+    options.ListenAnyIP(80);  // Écouter sur le port 80 sans SSL
+    // Si vous souhaitez utiliser HTTPS, décommentez la ligne suivante
+    // options.ListenAnyIP(443, listenOptions => listenOptions.UseHttps());
 });
 
 // Ajouter les services au conteneur
@@ -28,9 +32,9 @@ builder.Services.AddServicesInfrastructure(builder.Configuration);
 builder.Services.AddServicesApplication();
 
 // Configurer les options d'Identity
-builder.Services.Configure<IdentityOptions>(Options =>
+builder.Services.Configure<IdentityOptions>(options =>
 {
-    Options.User.AllowedUserNameCharacters = string.Empty;
+    options.User.AllowedUserNameCharacters = string.Empty;
 });
 
 // Ajouter l'authentification avec JWT
@@ -39,48 +43,58 @@ builder.Services.AddAuthentication(options =>
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(options =>
+})
+.AddJwtBearer(options =>
 {
     options.SaveToken = true;
     options.RequireHttpsMetadata = false;
-    options.TokenValidationParameters = new TokenValidationParameters()
+    options.TokenValidationParameters = new TokenValidationParameters
     {
+        // Configurer les paramètres de validation du jeton JWT
         ValidateIssuer = true,
         ValidateAudience = true,
-        ValidAudience = builder.Configuration["JWT:Audience"],
-        ValidIssuer = builder.Configuration["JWT:Issuer"],
-        ClockSkew = TimeSpan.Zero,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:key"]))
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
+        ValidAudience = builder.Configuration["JwtSettings:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:SecretKey"]))
     };
 });
 
-// Configurer l'autorisation
-builder.Services.AddAuthorization();
+// Ajout du service de Data Protection pour la gestion des clés cryptées
+builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(new DirectoryInfo("/root/.aspnet/DataProtection-Keys"))
+    .SetApplicationName("Auth_Services");
 
-// Ajouter CORS pour autoriser toutes les origines
+// Ajouter CORS pour permettre les appels cross-origin (si nécessaire)
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("Open", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+    });
 });
+
+// Ajouter les services pour les dépendances de l'application
+builder.Services.AddScoped<IYourService, YourService>();
 
 var app = builder.Build();
 
-// Configurer le pipeline de requêtes HTTP
-app.UseSwagger();
-app.UseSwaggerUI();
+// Configurer l'environnement et ajouter Swagger
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
-// Utiliser la redirection HTTP si nécessaire (ici on n'utilise pas HTTPS)
-app.UseHttpsRedirection();  // Cette ligne peut être ignorée si tu veux absolument ne pas utiliser HTTPS
-
-// Activer l'authentification et l'autorisation
+// Configurer les middlewares de sécurité
+app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Utiliser CORS
-app.UseCors("Open");
+// Configurer CORS (si nécessaire)
+app.UseCors("AllowAll");
 
-// Mapper les contrôleurs
 app.MapControllers();
 
 // Démarrer l'application
-app.Run("http://0.0.0.0:80");  // Spécifier explicitement l'URL et le port d'écoute
+app.Run();
