@@ -7,26 +7,33 @@ using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Ajouter les services nécessaires au conteneur
+// Configurer Kestrel pour écouter sur le port 80
+builder.WebHost.ConfigureKestrel(options =>
+{
+    // Écouter sur toutes les interfaces réseau au port 80 (HTTP)
+    options.ListenAnyIP(80);  // Écouter sur le port 80 (sans SSL)
+});
+
+// Ajouter les services au conteneur
 builder.Services.AddControllers();
 
-// Configurer Swagger pour la documentation de l'API
+// Configurer Swagger pour la documentation API
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Configurer les services d'infrastructure
+// Services Infrastructure
 builder.Services.AddServicesInfrastructure(builder.Configuration);
 
-// Configurer les services de l'application
+// Services Application
 builder.Services.AddServicesApplication();
 
 // Configurer les options d'Identity
-builder.Services.Configure<IdentityOptions>(options =>
+builder.Services.Configure<IdentityOptions>(Options =>
 {
-    options.User.AllowedUserNameCharacters = string.Empty; // Limiter les caractères autorisés dans le nom d'utilisateur
+    Options.User.AllowedUserNameCharacters = string.Empty;
 });
 
-// Configurer l'authentification JWT
+// Ajouter l'authentification avec JWT
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -35,7 +42,7 @@ builder.Services.AddAuthentication(options =>
 }).AddJwtBearer(options =>
 {
     options.SaveToken = true;
-    options.RequireHttpsMetadata = false; // Désactiver HTTPS pour les environnements locaux (à activer en production)
+    options.RequireHttpsMetadata = false;
     options.TokenValidationParameters = new TokenValidationParameters()
     {
         ValidateIssuer = true,
@@ -47,10 +54,10 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// Ajouter la gestion des autorisations
+// Configurer l'autorisation
 builder.Services.AddAuthorization();
 
-// Configurer CORS
+// Ajouter CORS pour autoriser toutes les origines
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("Open", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
@@ -62,17 +69,18 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-// PAS de redirection HTTPS ici
-// app.UseHttpsRedirection(); // Si t7eb matdirch 7it ma3ndekch SSL 
+// Utiliser la redirection HTTP si nécessaire (ici on n'utilise pas HTTPS)
+app.UseHttpsRedirection();  // Cette ligne peut être ignorée si tu veux absolument ne pas utiliser HTTPS
 
-// Ajouter la gestion de l'authentification et de l'autorisation
+// Activer l'authentification et l'autorisation
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Appliquer la politique CORS
+// Utiliser CORS
 app.UseCors("Open");
 
 // Mapper les contrôleurs
 app.MapControllers();
 
-app.Run();
+// Démarrer l'application
+app.Run("http://0.0.0.0:80");  // Spécifier explicitement l'URL et le port d'écoute
