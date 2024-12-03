@@ -9,14 +9,18 @@ using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configurer Kestrel pour écouter sur le port 80 (HTTP)
 builder.WebHost.ConfigureKestrel(options =>
 {
-    // Écouter sur toutes les interfaces réseau au port 80 (HTTP)
-    options.ListenAnyIP(80);  // Écouter sur le port 80 sans SSL
-    // Si vous souhaitez utiliser HTTPS, décommentez la ligne suivante
-    // options.ListenAnyIP(443, listenOptions => listenOptions.UseHttps());
+    // Écouter sur le port 80 (HTTP)
+    options.ListenAnyIP(80);
+
+    // Écouter sur le port 443 (HTTPS)
+    options.ListenAnyIP(443, listenOptions =>
+    {
+        listenOptions.UseHttps("/path/to/your/certificate.pfx", "your-certificate-password");
+    });
 });
+
 
 // Ajouter les services au conteneur
 builder.Services.AddControllers();
